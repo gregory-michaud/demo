@@ -42,4 +42,8 @@ public class Employe {
     @JoinColumn(name = "ADDRESS_ID")
     private Adresse adresse;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CIVILITY_ID")
+    private Civilite civilite;
+
 }
