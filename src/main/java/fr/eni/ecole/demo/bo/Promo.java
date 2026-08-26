@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"etudiants"})
 @Builder
 
 @Entity
@@ -25,8 +25,9 @@ public class Promo {
     @Column(name = "STUDENT_CLASS_NAME", length = 100, nullable = false)
     private String nom;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "STUDENT_CLASS_ID")
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "promo")
+    //@JoinColumn(name = "STUDENT_CLASS_ID")
     private @Builder.Default List<EtudiantEni> etudiants = new ArrayList<>();
 
 

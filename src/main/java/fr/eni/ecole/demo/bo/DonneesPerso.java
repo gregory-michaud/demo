@@ -25,7 +25,7 @@ public class DonneesPerso {
     @Column(name = "FIRSTNAME", nullable = false, length = 100)
     private String prenom;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "donneesPerso")
     private EtudiantEni etudiantEni;
 
 }

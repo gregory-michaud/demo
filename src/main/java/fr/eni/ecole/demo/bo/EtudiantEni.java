@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = {"promo"})
 @Builder
 @Entity
 @Table(name = "STUDENT_ENI")
@@ -24,5 +24,9 @@ public class EtudiantEni {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "DATA_ID")
     private DonneesPerso donneesPerso;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "STUDENT_CLASS_ID")
+    private Promo promo;
 
 }
