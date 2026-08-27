@@ -44,7 +44,7 @@ public class TestTransaction {
                 .ville("VILLE1")
                 .build();
 
-        employeService.ajouter(e1, a1);
+        employeService.ajouterEmploye(e1, a1);
 
         log.info(e1.toString());
         log.info(a1.toString());
@@ -73,7 +73,7 @@ public class TestTransaction {
 
 
         assertThrows(RuntimeException.class,
-                () -> employeService.ajouter(e1, a1));
+                () -> employeService.ajouterEmploye(e1, a1));
 
         log.info(e1.toString());
         log.info(a1.toString());

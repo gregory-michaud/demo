@@ -5,12 +5,14 @@ import fr.eni.ecole.demo.bo.Employe;
 
 import java.util.List;
 
+
 public interface EmployeService {
+	void ajouter(Employe employe);
 
-    void ajouter(Employe e);
-
-    List<Employe> chargerTousLesEmployes();
-
-    void ajouter(Employe e, Adresse adresse);
-
+	List<Employe> chargerTousEmployes();
+	
+	Employe chargerUnEmployeParId(int id);
+	
+	//Pour valider les transactions
+	void ajouterEmploye(Employe employe, Adresse adresse) ;
 }
