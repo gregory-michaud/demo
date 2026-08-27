@@ -2,6 +2,7 @@ package fr.eni.ecole.demo.bo;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,22 +11,16 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode
-@Builder
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @Entity
 @Table(name = "TRAINER")
-public class Formateur {
+public class Formateur extends Employe {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "COMPUTER_SCIENCE_COURSE", length = 100)
+    private String filiere;
 
-    @Column(name = "TRAINER_NAME", length = 100, nullable = false)
-    private String nom;
-
-    @Column(name = "TRAINER_FIRSTNAME", length = 100, nullable = false)
-    private String prenom;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
